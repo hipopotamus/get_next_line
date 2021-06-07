@@ -10,7 +10,6 @@
 # define BUFFER_SIZE 6
 # endif
 
-char* buffer;
 
 int	get_next_line(int fd, char **line);
 int	find_new(char *s);

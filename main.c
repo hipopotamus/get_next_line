@@ -15,19 +15,20 @@
 
 int main()
 {
-	char **line = malloc(sizeof(char*)*1);
-	line[0] = malloc(sizeof(char)*100);
-	char **line2 = malloc(sizeof(char*)*1);
-	line2[0] = malloc(sizeof(char)*100);
-	buffer = malloc(sizeof(char) * 100);
+	char *line = NULL;
+	char *line2 = NULL;
+	char *line3 = NULL;
+	char *line4 = NULL;
 	int fd = open("./testtxt.txt", O_RDONLY);
 
-	int a;
-	get_next_line(fd, line);
-	printf("----\n");
-	get_next_line(fd, line2);
-	printf("line = %s\n", line[0]);
-	printf("line2 = %s\n", line2[0]);
+	get_next_line(fd, &line);
+	get_next_line(fd, &line2);
+	get_next_line(fd, &line3);
+	get_next_line(fd, &line4);
+	printf("line = %s\n", line);
+	printf("line2 = %s\n", line2);
+	printf("line3 = %s\n", line3);
+	printf("line4 = %s\n", line4);
 	close(fd);
 	return 0;
 }
