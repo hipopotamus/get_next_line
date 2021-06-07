@@ -12,21 +12,7 @@
 
 #include "get_next_line.h"
 
-int find_new(char *s)
-{
-	int i;
-
-	i = 0;
-	while(s[i] != '\0')
-	{
-		if (s[i] == '\n')
-			return i + 1;
-		i++;
-	}
-	return 0;
-}
-
-size_t ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
 	size_t i;
 
@@ -36,48 +22,34 @@ size_t ft_strlen(const char *s)
 	return (i);
 }
 
-size_t ft_strlcat(char *dst, const char *src, size_t dstsize)
+void	*ft_calloc(size_t count, size_t size)
 {
-	size_t len_dst;
-	size_t len_src;
-	size_t i;
+	void	*ptr;
+	size_t	idx;
 
-	len_dst = ft_strlen(dst);
-	len_src = ft_strlen(src);
-	i = 0;
-	if(dstsize <= len_dst)
-		return (dstsize + len_src);
-	while (src[i] != '\0' && i < dstsize - len_dst -1)
+	ptr = (char*)malloc(count * size);
+	if (ptr == NULL)
+		return (NULL);
+	idx = 0;
+	while (idx < count * size)
 	{
-		dst[len_dst + i] = src[i];
-		i++;
+			((unsigned char*)ptr)[idx] = (unsigned char)0;
+			idx++;
 	}
-	dst[len_dst + i] = '\0';
-	return (len_dst + len_src);
+	return (ptr);
 }
 
-size_t ft_strlcpy(char *dst, const char *src, size_t dstsize)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
 	size_t i;
 
 	i = 0;
-	while(src[i] != '\0' && i + 1 < dstsize)
+	while (i < n)
 	{
-		dst[i] = src[i];
+		((unsigned char*)dst)[i] = ((unsigned char*)src)[i];
+		if (((unsigned char*)src)[i] == (unsigned char)c)
+			return (dst + i + 1);
 		i++;
 	}
-	if (dstsize != 0)
-		dst[i] = '\0';
-	return (ft_strlen(src));
-}
-
-size_t ft_strlcpy_del(char *dst, const char *src, size_t dstsize)
-{
-	ft_strlcpy(dst, src, dstsize);
-	while(dst[dstsize] != '\0')
-	{
-		dst[dstsize] = '\0';
-		dstsize++;
-	}
-	return dstsize;
+	return (NULL);
 }
