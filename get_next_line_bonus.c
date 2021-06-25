@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungwopa <sungwopa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 12:04:48 by sungwopa          #+#    #+#             */
-/*   Updated: 2021/06/10 16:10:46 by sungwopa         ###   ########.fr       */
+/*   Updated: 2021/06/10 19:19:55 by sungwopa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static ssize_t	read_in_buffer(int fd, t_gnl_object *object)
 {
